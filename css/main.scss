@@ -22,10 +22,35 @@ p {
   margin: 0;
 }
 
+section {
+  padding: 7em 0;
+}
+
 .container {
   width: 85%;
   max-width: 65em;
   margin: 0 auto;
+}
+
+.split {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  &>* {
+    flex-basis: 30%;
+  }
+}
+
+.split > * {
+  flex-basis: 30%;
+  min-width: 15em;
+
+}
+
+.spacing > * + * {
+  margin-top: var(--spacer, 2rem)
 }
 
 .btn {
@@ -52,5 +77,47 @@ p {
 .primary-title {
   font-size: 4rem;
   font-size: clamp(3rem, calc(5vw + 1rem), 4.5rem);
-  line-height: 1.1;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(2.5rem, calc(5vw + 1rem), 4rem);
+  line-height: 1;
+  color: #17353d;
+  margin-bottom: 5rem;
+}
+
+.hero {
+  color: white;
+  text-align: center;
+  padding: 15em 0;
+  background: #222;
+
+  @supports(background-blend-mode: multiply) {
+    background-image: 
+    url(../assets/vans3.jpg),
+    radial-gradient(#444, #111);
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  
+}
+
+.featured {
+  background: #eee;
+  &__item {
+    display: block;
+    position: relative;
+    transform: scale(.5);
+    transition: transform 250ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      transform: scale(1)
+    }
+  }
 }
